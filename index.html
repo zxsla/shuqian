@@ -14,8 +14,8 @@
             min-height: 100vh;
             color: white;
             position: relative;
-            overflow-x: hidden;           /* 禁止左右滑动 */
-            overflow-y: auto;             /* 只允许上下滑动 */
+            overflow-x: hidden;
+            overflow-y: auto;
         }
 
         @keyframes dynamicFlow {
@@ -111,7 +111,6 @@
         }
         .small-btn:active { background: rgba(255,255,255,0.3); transform: scale(0.96); }
 
-        /* 可上下滑动的核心内容区 */
         .content {
             max-width: 420px;
             margin: 0 auto;
@@ -139,7 +138,6 @@
         }
         .card:active { transform: translateY(-2px); }
 
-        /* 音乐按钮 */
         .music-btn {
             position: fixed;
             bottom: 30px;
@@ -222,10 +220,19 @@
                     <a href="https://streamshare.wireway.ch/download/xicyren7" target="_blank">酷我音乐</a>
                     <a href="http://4275.com/rxd0dp" target="_blank">shizuku</a>
                     <a href="http://4275.com/hagn1n" target="_blank">红果短剧</a>
+                    <a href="https://dogpan.com/home?path=cloudreve%3A%2F%2FYEPnhJ%40share" target="_blank">🎬 tiltok合集</a>
                 </div>
             </div>
 
-            <div class="card" onclick="toggleCard(this)">其他资源 ▼</div>
+            <div class="card" onclick="toggleCard(this)">其他资源 ▼
+                <div class="card-content">
+                    <a href="https://blog.cmliussss.com/p/edt2" target="_blank">📖 CM节点搭建图文教程</a>
+                    <a href="https://cf.090227.xyz/" target="_blank">🌐 CM优选IP</a>
+                    <a href="https://hhhhh.eu.org/" target="_blank">🌐 乌鸦优选IP</a>
+                    <a href="https://cfv6.qq.ms/" target="_blank">🌐 无名优选IP</a>
+                    <a href="https://wp.v6x8.com/upload.php" target="_blank">📤 直连托管上传</a>
+                </div>
+            </div>
         </div>
     </div>
 
