@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>书签收藏</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -13,9 +13,9 @@
             animation: dynamicFlow 16s ease infinite;
             min-height: 100vh;
             color: white;
-            padding: 15px;
             position: relative;
-            overflow: hidden;
+            overflow-x: hidden;           /* 禁止左右滑动 */
+            overflow-y: auto;             /* 只允许上下滑动 */
         }
 
         @keyframes dynamicFlow {
@@ -24,14 +24,23 @@
             100% { background-position: 0% 50%; }
         }
 
+        /* 雪花 */
         .snow-container {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            pointer-events: none; z-index: 1; overflow: hidden;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
         }
         .snowflake {
-            position: absolute; top: -10px; color: #FF69B4;
-            text-shadow: 0 0 8px #FFB6C1; font-size: 18px;
-            opacity: 0.85; animation: snowfall linear infinite;
+            position: absolute;
+            top: -10px;
+            color: #FF69B4;
+            text-shadow: 0 0 8px #FFB6C1;
+            font-size: 18px;
+            opacity: 0.85;
+            animation: snowfall linear infinite;
             user-select: none;
         }
         @keyframes snowfall {
@@ -39,59 +48,98 @@
             100% { transform: translateY(110vh) translateX(var(--drift)) rotate(360deg); }
         }
 
+        /* 跑马灯 */
         .marquee {
-            position: relative; width: 100%; height: 50px;
-            overflow: hidden; margin-bottom: 20px; z-index: 10;
+            position: relative;
+            width: 100%;
+            height: 50px;
+            overflow: hidden;
+            margin-bottom: 15px;
+            z-index: 10;
         }
         .marquee-content {
-            position: absolute; white-space: nowrap; font-size: 26px;
-            font-weight: bold; padding: 8px 0;
+            position: absolute;
+            white-space: nowrap;
+            font-size: 26px;
+            font-weight: bold;
+            padding: 8px 0;
             background: linear-gradient(90deg, #FF00C8, #FF80FF, #00FFFF, #00FFCC, #FF00C8, #FF80FF);
-            -webkit-background-clip: text; background-clip: text;
-            color: transparent; background-size: 300% 100%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            background-size: 300% 100%;
             animation: rainbowMove 8s linear infinite, marqueeScroll 25s linear infinite;
             text-shadow: 0 0 15px rgba(255,255,255,0.6);
         }
         @keyframes rainbowMove { 0% { background-position: 0% 50%; } 100% { background-position: 300% 50%; } }
         @keyframes marqueeScroll { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
 
-        .header { text-align: center; margin-bottom: 20px; position: relative; z-index: 5; }
-        .title { font-size: 26px; font-weight: bold; margin-bottom: 15px; text-shadow: 0 0 15px rgba(255,255,255,0.7); }
+        .header {
+            text-align: center;
+            padding-top: 15px;
+            position: relative;
+            z-index: 5;
+        }
+        .title { font-size: 26px; font-weight: bold; margin-bottom: 10px; text-shadow: 0 0 15px rgba(255,255,255,0.7); }
         .avatar {
             width: 140px; height: 140px; border-radius: 50%;
             border: 5px solid rgba(255,255,255,0.8);
             box-shadow: 0 0 30px rgba(255, 100, 255, 0.8);
-            overflow: hidden; margin: 0 auto 20px;
+            overflow: hidden; margin: 0 auto 15px;
         }
         .avatar img { width: 100%; height: 100%; object-fit: cover; }
 
         .small-buttons {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 7px;
-            max-width: 360px; margin: 0 auto 35px; position: relative; z-index: 5;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            max-width: 360px;
+            margin: 0 auto 25px;
+            position: relative;
+            z-index: 5;
         }
         .small-btn {
-            background: rgba(255,255,255,0.18); backdrop-filter: blur(15px);
-            border: 1px solid rgba(255,255,255,0.35); border-radius: 12px;
-            padding: 10px 6px; text-align: center; font-size: 13.5px;
-            font-weight: 500; box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            background: rgba(255,255,255,0.18);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255,255,255,0.35);
+            border-radius: 12px;
+            padding: 11px 8px;
+            text-align: center;
+            font-size: 13.5px;
+            font-weight: 500;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
         .small-btn:active { background: rgba(255,255,255,0.3); transform: scale(0.96); }
 
+        /* 可上下滑动的核心内容区 */
+        .content {
+            max-width: 420px;
+            margin: 0 auto;
+            padding: 0 15px 90px;
+            position: relative;
+            z-index: 5;
+        }
+
         .cards {
-            max-width: 420px; margin: 0 auto;
-            display: flex; flex-direction: column; gap: 16px;
-            position: relative; z-index: 5;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
         }
         .card {
-            background: rgba(255,255,255,0.16); backdrop-filter: blur(18px);
-            border: 1px solid rgba(255,255,255,0.35); border-radius: 20px;
-            padding: 20px 16px; text-align: center; font-size: 18px;
-            font-weight: 600; box-shadow: 0 8px 25px rgba(255, 80, 255, 0.4);
+            background: rgba(255,255,255,0.16);
+            backdrop-filter: blur(18px);
+            border: 1px solid rgba(255,255,255,0.35);
+            border-radius: 20px;
+            padding: 20px 16px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: 600;
+            box-shadow: 0 8px 25px rgba(255, 80, 255, 0.4);
             cursor: pointer;
         }
         .card:active { transform: translateY(-2px); }
 
-        /* 音乐按钮 - 已缩小到40px */
+        /* 音乐按钮 */
         .music-btn {
             position: fixed;
             bottom: 30px;
@@ -117,11 +165,17 @@
         }
 
         .card-content {
-            display: none; margin-top: 15px; text-align: left; font-size: 15px;
+            display: none;
+            margin-top: 15px;
+            text-align: left;
+            font-size: 15px;
         }
         .card-content a {
-            color: #fff; text-decoration: none; display: block;
-            padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.2);
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
         }
         .card-content a:last-child { border-bottom: none; }
         .card-content a:hover { color: #a0f0ff; text-decoration: underline; }
@@ -129,8 +183,10 @@
 </head>
 <body>
 
+    <!-- 雪花 -->
     <div class="snow-container" id="snowContainer"></div>
 
+    <!-- 跑马灯 -->
     <div class="marquee">
         <div class="marquee-content">我命由我不由天！</div>
     </div>
@@ -142,6 +198,7 @@
         </div>
     </div>
 
+    <!-- 小按钮 -->
     <div class="small-buttons">
         <a href="https://t.me/Eternity0006" class="small-btn" target="_blank">TG频道</a>
         <a href="https://jierry-alt.github.io/jierry-al.github.io/" class="small-btn" target="_blank">个人网站</a>
@@ -149,24 +206,27 @@
         <div class="small-btn">待填</div>
     </div>
 
-    <div class="cards">
-        <div class="card" onclick="toggleCard(this)">公益项目 ▼
-            <div class="card-content">
-                <a href="https://substable.trevely.de5.net/Trevely" target="_blank">公益订阅 1</a>
-                <a href="https://hha.albertabobbi.ndjp.net/sub?token=0dae672be75b12550a98be8fa66458f2" target="_blank">公益订阅 2</a>
-                <a href="https://sni.skylee4.cloudns.ch/tset" target="_blank">公益订阅 3</a>
+    <!-- 可上下滑动的内容区域 -->
+    <div class="content">
+        <div class="cards">
+            <div class="card" onclick="toggleCard(this)">公益项目 ▼
+                <div class="card-content">
+                    <a href="https://substable.trevely.de5.net/Trevely" target="_blank">公益订阅 1</a>
+                    <a href="https://hha.albertabobbi.ndjp.net/sub?token=0dae672be75b12550a98be8fa66458f2" target="_blank">公益订阅 2</a>
+                    <a href="https://sni.skylee4.cloudns.ch/tset" target="_blank">公益订阅 3</a>
+                </div>
             </div>
-        </div>
 
-        <div class="card" onclick="toggleCard(this)">破解软件 ▼
-            <div class="card-content">
-                <a href="https://streamshare.wireway.ch/download/xicyren7" target="_blank">酷我音乐</a>
-                <a href="http://4275.com/rxd0dp" target="_blank">shizuku</a>
-                <a href="http://4275.com/hagn1n" target="_blank">红果短剧</a>
+            <div class="card" onclick="toggleCard(this)">破解软件 ▼
+                <div class="card-content">
+                    <a href="https://streamshare.wireway.ch/download/xicyren7" target="_blank">酷我音乐</a>
+                    <a href="http://4275.com/rxd0dp" target="_blank">shizuku</a>
+                    <a href="http://4275.com/hagn1n" target="_blank">红果短剧</a>
+                </div>
             </div>
-        </div>
 
-        <div class="card" onclick="toggleCard(this)">其他资源 ▼</div>
+            <div class="card" onclick="toggleCard(this)">其他资源 ▼</div>
+        </div>
     </div>
 
     <!-- 音乐按钮 -->
@@ -195,7 +255,9 @@
 
         function toggleCard(card) {
             const content = card.querySelector('.card-content');
-            if (content) content.style.display = (content.style.display === 'block') ? 'none' : 'block';
+            if (content) {
+                content.style.display = (content.style.display === 'block') ? 'none' : 'block';
+            }
         }
 
         const audio = document.getElementById('bgMusic');
