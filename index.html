@@ -8,28 +8,63 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: "Microsoft YaHei", sans-serif;
-            background: linear-gradient(135deg, #4B0082, #8A2BE2, #C026D3);
+            /* 更动感的紫粉渐变 + 多层光效 */
+            background: linear-gradient(135deg, #7B00FF, #FF00C8, #FF00AA);
+            background-size: 400% 400%;
+            animation: gradientFlow 15s ease infinite;
             min-height: 100vh;
             color: white;
             padding: 20px 15px;
+            position: relative;
+            overflow: hidden;
         }
+
+        /* 动态背景动画 */
+        @keyframes gradientFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* 添加一层微弱的光晕层 */
+        body::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,0,200,0.25) 0%, transparent 70%);
+            animation: pulse 20s ease infinite;
+            z-index: -1;
+            opacity: 0.6;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+        }
+
         .header {
             text-align: center;
             margin-bottom: 30px;
+            position: relative;
+            z-index: 2;
         }
         .title {
-            font-size: 26px;
+            font-size: 28px;
             font-weight: bold;
-            text-shadow: 0 2px 15px rgba(255,255,255,0.4);
+            margin-bottom: 15px;
+            text-shadow: 0 0 20px rgba(255,255,255,0.8);
         }
         .avatar {
-            width: 130px;
-            height: 130px;
+            width: 165px;
+            height: 165px;
             border-radius: 50%;
-            border: 5px solid rgba(255,255,255,0.7);
-            box-shadow: 0 0 30px rgba(192, 38, 211, 0.8);
+            border: 6px solid rgba(255,255,255,0.9);
+            box-shadow: 0 0 40px rgba(255, 0, 200, 0.95);
             overflow: hidden;
-            margin: 15px auto;
+            margin: 0 auto 20px;
         }
         .avatar img { width: 100%; height: 100%; object-fit: cover; }
 
@@ -41,35 +76,39 @@
             margin: 0 auto 35px;
         }
         .btn {
-            background: rgba(255,255,255,0.18);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255,255,255,0.35);
+            background: rgba(255,255,255,0.22);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255,255,255,0.45);
             border-radius: 18px;
             padding: 18px;
             text-align: center;
             font-size: 17px;
             font-weight: 600;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+            box-shadow: 0 8px 25px rgba(255, 0, 180, 0.5);
+            transition: all 0.3s;
         }
-        .btn:active { transform: scale(0.96); }
+        .btn:active { 
+            transform: scale(0.95); 
+            background: rgba(255,255,255,0.4);
+        }
 
         .cards {
             max-width: 420px;
-            margin: 0 auto;
+            margin: 0 auto 90px;
             display: flex;
             flex-direction: column;
             gap: 16px;
         }
         .card {
-            background: rgba(255,255,255,0.15);
+            background: rgba(255,255,255,0.18);
             backdrop-filter: blur(18px);
-            border: 1px solid rgba(255,255,255,0.3);
+            border: 1px solid rgba(255,255,255,0.4);
             border-radius: 22px;
             overflow: hidden;
-            box-shadow: 0 8px 25px rgba(192, 38, 211, 0.4);
+            box-shadow: 0 10px 30px rgba(255, 0, 180, 0.6);
         }
         .card-header {
-            padding: 20px 18px;
+            padding: 22px 18px;
             font-size: 19px;
             font-weight: 700;
             cursor: pointer;
@@ -83,15 +122,34 @@
         }
         .card-content.show { display: block; }
         .list-item {
-            background: rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.15);
             margin: 6px 10px;
             padding: 16px 18px;
             border-radius: 14px;
             font-size: 16px;
         }
-        .list-item:active {
-            background: rgba(255,255,255,0.25);
+        .list-item:active { background: rgba(255,255,255,0.35); }
+
+        /* 右下角音乐按钮 - 更醒目 */
+        .music-btn {
+            position: fixed;
+            bottom: 25px;
+            right: 20px;
+            width: 68px;
+            height: 68px;
+            background: rgba(255,255,255,0.28);
+            backdrop-filter: blur(20px);
+            border: 3px solid rgba(255, 200, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 34px;
+            box-shadow: 0 12px 35px rgba(255, 0, 180, 0.8);
+            z-index: 100;
+            text-decoration: none;
         }
+        .music-btn:active { transform: scale(0.88); }
     </style>
 </head>
 <body>
@@ -103,14 +161,13 @@
     </div>
 
     <div class="buttons">
-        <a href="https://t.me/Eternity0006" class="btn" target="_blank">TG频道 @Eternity0006</a>
+        <a href="https://t.me/Eternity0006" class="btn" target="_blank">TG频道</a>
         <div class="btn">待填</div>
         <div class="btn">待填</div>
         <div class="btn">待填</div>
     </div>
 
     <div class="cards">
-        <!-- 公益项目卡片（可展开） -->
         <div class="card">
             <div class="card-header" onclick="toggleCard(this)">公益项目 ▼</div>
             <div class="card-content">
@@ -125,29 +182,32 @@
             </div>
         </div>
 
-        <!-- 破解软件卡片（可展开） -->
         <div class="card">
             <div class="card-header" onclick="toggleCard(this)">破解软件 ▼</div>
             <div class="card-content">
-                <div class="list-item">待添加项目1</div>
-                <div class="list-item">待添加项目2</div>
-                <div class="list-item">待添加项目3</div>
-                <!-- 你可以在这里继续添加更多项目 -->
+                <div class="list-item">待添加项目</div>
+                <a href="https://streamshare.wireway.ch/download/jgakord1" target="_blank" class="list-item" style="display:block; color:white; text-decoration:none;">酷我音乐</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header" onclick="toggleCard(this)">其他资源 ▼</div>
+            <div class="card-content">
+                <div class="list-item">待添加内容</div>
             </div>
         </div>
     </div>
+
+    <!-- 右下角音乐按钮 -->
+    <a href="https://streamshare.wireway.ch/download/4un2jvap" target="_blank" class="music-btn">♫</a>
 
     <script>
         function toggleCard(header) {
             const content = header.nextElementSibling;
             content.classList.toggle('show');
-            
-            // 切换箭头方向
-            if (content.classList.contains('show')) {
-                header.textContent = header.textContent.replace('▼', '▲');
-            } else {
-                header.textContent = header.textContent.replace('▲', '▼');
-            }
+            header.textContent = content.classList.contains('show') 
+                ? header.textContent.replace('▼', '▲') 
+                : header.textContent.replace('▲', '▼');
         }
     </script>
 </body>
