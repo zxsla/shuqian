@@ -8,7 +8,6 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: "Microsoft YaHei", sans-serif;
-            /* 青绿到蓝色渐变背景 */
             background: linear-gradient(135deg, #00FFCC, #00BFFF, #1E90FF, #4169E1);
             background-size: 400% 400%;
             animation: dynamicFlow 16s ease infinite;
@@ -16,7 +15,7 @@
             color: white;
             padding: 15px;
             position: relative;
-            overflow: hidden; /* 防止雪花溢出 */
+            overflow: hidden;
         }
 
         @keyframes dynamicFlow {
@@ -25,39 +24,31 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* ==================== 粉红色雪花效果 ==================== */
+        /* 粉红色雪花 */
         .snow-container {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             pointer-events: none;
             z-index: 1;
             overflow: hidden;
         }
-
         .snowflake {
             position: absolute;
             top: -10px;
-            color: #FF69B4;           /* 粉红色 */
+            color: #FF69B4;
             text-shadow: 0 0 8px #FFB6C1;
             font-size: 18px;
             opacity: 0.85;
             animation: snowfall linear infinite;
             user-select: none;
         }
-
         @keyframes snowfall {
-            0% {
-                transform: translateY(-100px) translateX(0) rotate(0deg);
-            }
-            100% {
-                transform: translateY(110vh) translateX(var(--drift)) rotate(360deg);
-            }
+            0% { transform: translateY(-100px) translateX(0) rotate(0deg); }
+            100% { transform: translateY(110vh) translateX(var(--drift)) rotate(360deg); }
         }
 
-        /* ==================== 跑马灯 ==================== */
+        /* 跑马灯 */
         .marquee {
             position: relative;
             width: 100%;
@@ -66,17 +57,13 @@
             margin-bottom: 20px;
             z-index: 10;
         }
-
         .marquee-content {
             position: absolute;
             white-space: nowrap;
             font-size: 26px;
             font-weight: bold;
             padding: 8px 0;
-            /* 流动彩虹渐变 */
-            background: linear-gradient(90deg, 
-                #FF00C8, #FF80FF, #00FFFF, #00FFCC, 
-                #FF00C8, #FF80FF);
+            background: linear-gradient(90deg, #FF00C8, #FF80FF, #00FFFF, #00FFCC, #FF00C8, #FF80FF);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -84,18 +71,9 @@
             animation: rainbowMove 8s linear infinite, marqueeScroll 25s linear infinite;
             text-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
         }
+        @keyframes rainbowMove { 0% { background-position: 0% 50%; } 100% { background-position: 300% 50%; } }
+        @keyframes marqueeScroll { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
 
-        @keyframes rainbowMove {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 300% 50%; }
-        }
-
-        @keyframes marqueeScroll {
-            0% { transform: translateX(100%); }
-            100% { transform: translateX(-100%); }
-        }
-
-        /* 其他原有样式（保持不变） */
         .header {
             text-align: center;
             margin-bottom: 20px;
@@ -167,27 +145,28 @@
         }
         .card:active { transform: translateY(-2px); }
 
+        /* 音乐按钮 - 加大 + 向内移动一点 */
         .music-btn {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 68px;
-            height: 68px;
-            background: rgba(255,255,255,0.22);
+            bottom: 35px;
+            right: 35px;
+            width: 65px;
+            height: 65px;
+            background: rgba(255,255,255,0.25);
             backdrop-filter: blur(20px);
-            border: 3px solid #FF80FF;
+            border: 3.5px solid #FF80FF;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 32px;
-            box-shadow: 0 10px 30px rgba(255, 100, 255, 0.8);
+            font-size: 28px;
+            box-shadow: 0 10px 30px rgba(255, 100, 255, 0.85);
             z-index: 100;
             transition: all 0.3s ease;
         }
         .music-btn:active {
-            transform: scale(0.92);
-            background: rgba(255, 100, 255, 0.45);
+            transform: scale(0.9);
+            background: rgba(255, 100, 255, 0.5);
         }
 
         .card-content {
@@ -209,10 +188,10 @@
 </head>
 <body>
 
-    <!-- 粉红色雪花容器 -->
+    <!-- 粉红色雪花 -->
     <div class="snow-container" id="snowContainer"></div>
 
-    <!-- 滚动跑马灯 -->
+    <!-- 跑马灯 -->
     <div class="marquee">
         <div class="marquee-content">我命由我不由天！</div>
     </div>
@@ -224,7 +203,7 @@
         </div>
     </div>
 
-    <!-- 4个小按钮 -->
+    <!-- 小按钮 -->
     <div class="small-buttons">
         <a href="https://t.me/Eternity0006" class="small-btn" target="_blank">TG频道</a>
         <a href="https://jierry-alt.github.io/jierry-al.github.io/" class="small-btn" target="_blank">个人网站</a>
@@ -252,7 +231,7 @@
         <div class="card" onclick="toggleCard(this)">其他资源 ▼</div>
     </div>
 
-    <!-- 音乐按钮 -->
+    <!-- 音乐按钮（加大 + 向内移动） -->
     <div onclick="toggleMusic()" id="musicBtn" class="music-btn">♫</div>
 
     <audio id="bgMusic" loop>
@@ -260,48 +239,42 @@
     </audio>
 
     <script>
-        // 生成粉红色雪花（密度适中，速度适中）
         function createSnowflakes() {
             const container = document.getElementById('snowContainer');
-            for (let i = 0; i < 45; i++) {   // 45片左右，不会太密
+            for (let i = 0; i < 45; i++) {
                 const snow = document.createElement('div');
                 snow.className = 'snowflake';
-                snow.textContent = '❄︎';     // 雪花符号
+                snow.textContent = '❄︎';
                 snow.style.left = Math.random() * 100 + 'vw';
-                snow.style.animationDuration = (Math.random() * 8 + 10) + 's';  // 10~18秒，速度适中
+                snow.style.animationDuration = (Math.random() * 8 + 10) + 's';
                 snow.style.animationDelay = '-' + Math.random() * 15 + 's';
                 snow.style.opacity = Math.random() * 0.6 + 0.5;
                 snow.style.fontSize = (Math.random() * 12 + 14) + 'px';
-                snow.style.setProperty('--drift', (Math.random() * 80 - 40) + 'px'); // 轻微左右飘
+                snow.style.setProperty('--drift', (Math.random() * 80 - 40) + 'px');
                 container.appendChild(snow);
             }
         }
 
-        // 卡片展开
         function toggleCard(card) {
             const content = card.querySelector('.card-content');
             if (content) {
                 content.style.display = (content.style.display === 'block') ? 'none' : 'block';
-            } else {
-                alert('此卡片内容待展开（可自行添加列表）');
             }
         }
 
-        // 音乐控制
         const audio = document.getElementById('bgMusic');
         const musicBtn = document.getElementById('musicBtn');
 
         function toggleMusic() {
             if (audio.paused) {
                 audio.play();
-                musicBtn.style.background = 'rgba(255, 100, 255, 0.45)';
+                musicBtn.style.background = 'rgba(255, 100, 255, 0.5)';
             } else {
                 audio.pause();
-                musicBtn.style.background = 'rgba(255,255,255,0.22)';
+                musicBtn.style.background = 'rgba(255,255,255,0.25)';
             }
         }
 
-        // 初始化雪花
         window.onload = createSnowflakes;
     </script>
 </body>
