@@ -145,28 +145,31 @@
         }
         .card:active { transform: translateY(-2px); }
 
-        /* 音乐按钮 - 加大 + 向内移动一点 */
+        /* 音乐按钮 - 完全按照新截图风格（半透明圆形音量按钮） */
         .music-btn {
             position: fixed;
             bottom: 35px;
             right: 35px;
-            width: 65px;
-            height: 65px;
-            background: rgba(255,255,255,0.25);
+            width: 58px;
+            height: 58px;
+            background: rgba(255, 255, 255, 0.18);
             backdrop-filter: blur(20px);
-            border: 3.5px solid #FF80FF;
+            border: 2px solid rgba(255, 255, 255, 0.45);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 28px;
-            box-shadow: 0 10px 30px rgba(255, 100, 255, 0.85);
+            font-size: 26px;
+            color: #ffffff;
+            box-shadow: 
+                0 4px 15px rgba(0, 0, 0, 0.3),
+                inset 0 0 12px rgba(255,255,255,0.4);
             z-index: 100;
-            transition: all 0.3s ease;
+            transition: all 0.25s ease;
         }
         .music-btn:active {
-            transform: scale(0.9);
-            background: rgba(255, 100, 255, 0.5);
+            transform: scale(0.88);
+            background: rgba(255, 255, 255, 0.35);
         }
 
         .card-content {
@@ -231,8 +234,8 @@
         <div class="card" onclick="toggleCard(this)">其他资源 ▼</div>
     </div>
 
-    <!-- 音乐按钮（加大 + 向内移动） -->
-    <div onclick="toggleMusic()" id="musicBtn" class="music-btn">♫</div>
+    <!-- 音乐按钮（新截图风格） -->
+    <div onclick="toggleMusic()" id="musicBtn" class="music-btn">🎵</div>
 
     <audio id="bgMusic" loop>
         <source src="https://streamshare.wireway.ch/download/4un2jvap" type="audio/mpeg">
@@ -268,10 +271,10 @@
         function toggleMusic() {
             if (audio.paused) {
                 audio.play();
-                musicBtn.style.background = 'rgba(255, 100, 255, 0.5)';
+                musicBtn.style.background = 'rgba(255, 255, 255, 0.35)';
             } else {
                 audio.pause();
-                musicBtn.style.background = 'rgba(255,255,255,0.25)';
+                musicBtn.style.background = 'rgba(255, 255, 255, 0.18)';
             }
         }
 
