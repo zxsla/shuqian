@@ -24,23 +24,14 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* 粉红色雪花 */
         .snow-container {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            pointer-events: none;
-            z-index: 1;
-            overflow: hidden;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: 1; overflow: hidden;
         }
         .snowflake {
-            position: absolute;
-            top: -10px;
-            color: #FF69B4;
-            text-shadow: 0 0 8px #FFB6C1;
-            font-size: 18px;
-            opacity: 0.85;
-            animation: snowfall linear infinite;
+            position: absolute; top: -10px; color: #FF69B4;
+            text-shadow: 0 0 8px #FFB6C1; font-size: 18px;
+            opacity: 0.85; animation: snowfall linear infinite;
             user-select: none;
         }
         @keyframes snowfall {
@@ -48,142 +39,89 @@
             100% { transform: translateY(110vh) translateX(var(--drift)) rotate(360deg); }
         }
 
-        /* 跑马灯 */
         .marquee {
-            position: relative;
-            width: 100%;
-            height: 50px;
-            overflow: hidden;
-            margin-bottom: 20px;
-            z-index: 10;
+            position: relative; width: 100%; height: 50px;
+            overflow: hidden; margin-bottom: 20px; z-index: 10;
         }
         .marquee-content {
-            position: absolute;
-            white-space: nowrap;
-            font-size: 26px;
-            font-weight: bold;
-            padding: 8px 0;
+            position: absolute; white-space: nowrap; font-size: 26px;
+            font-weight: bold; padding: 8px 0;
             background: linear-gradient(90deg, #FF00C8, #FF80FF, #00FFFF, #00FFCC, #FF00C8, #FF80FF);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            background-size: 300% 100%;
+            -webkit-background-clip: text; background-clip: text;
+            color: transparent; background-size: 300% 100%;
             animation: rainbowMove 8s linear infinite, marqueeScroll 25s linear infinite;
-            text-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+            text-shadow: 0 0 15px rgba(255,255,255,0.6);
         }
         @keyframes rainbowMove { 0% { background-position: 0% 50%; } 100% { background-position: 300% 50%; } }
         @keyframes marqueeScroll { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
 
-        .header {
-            text-align: center;
-            margin-bottom: 20px;
-            position: relative;
-            z-index: 5;
-        }
-        .title {
-            font-size: 26px;
-            font-weight: bold;
-            margin-bottom: 15px;
-            text-shadow: 0 0 15px rgba(255,255,255,0.7);
-        }
+        .header { text-align: center; margin-bottom: 20px; position: relative; z-index: 5; }
+        .title { font-size: 26px; font-weight: bold; margin-bottom: 15px; text-shadow: 0 0 15px rgba(255,255,255,0.7); }
         .avatar {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
+            width: 140px; height: 140px; border-radius: 50%;
             border: 5px solid rgba(255,255,255,0.8);
             box-shadow: 0 0 30px rgba(255, 100, 255, 0.8);
-            overflow: hidden;
-            margin: 0 auto 20px;
+            overflow: hidden; margin: 0 auto 20px;
         }
         .avatar img { width: 100%; height: 100%; object-fit: cover; }
 
         .small-buttons {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 7px;
-            max-width: 360px;
-            margin: 0 auto 35px;
-            position: relative;
-            z-index: 5;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 7px;
+            max-width: 360px; margin: 0 auto 35px; position: relative; z-index: 5;
         }
         .small-btn {
-            background: rgba(255,255,255,0.18);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255,255,255,0.35);
-            border-radius: 12px;
-            padding: 10px 6px;
-            text-align: center;
-            font-size: 13.5px;
-            font-weight: 500;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            background: rgba(255,255,255,0.18); backdrop-filter: blur(15px);
+            border: 1px solid rgba(255,255,255,0.35); border-radius: 12px;
+            padding: 10px 6px; text-align: center; font-size: 13.5px;
+            font-weight: 500; box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
-        .small-btn:active {
-            background: rgba(255,255,255,0.3);
-            transform: scale(0.96);
-        }
+        .small-btn:active { background: rgba(255,255,255,0.3); transform: scale(0.96); }
 
         .cards {
-            max-width: 420px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            position: relative;
-            z-index: 5;
+            max-width: 420px; margin: 0 auto;
+            display: flex; flex-direction: column; gap: 16px;
+            position: relative; z-index: 5;
         }
         .card {
-            background: rgba(255,255,255,0.16);
-            backdrop-filter: blur(18px);
-            border: 1px solid rgba(255,255,255,0.35);
-            border-radius: 20px;
-            padding: 20px 16px;
-            text-align: center;
-            font-size: 18px;
-            font-weight: 600;
-            box-shadow: 0 8px 25px rgba(255, 80, 255, 0.4);
+            background: rgba(255,255,255,0.16); backdrop-filter: blur(18px);
+            border: 1px solid rgba(255,255,255,0.35); border-radius: 20px;
+            padding: 20px 16px; text-align: center; font-size: 18px;
+            font-weight: 600; box-shadow: 0 8px 25px rgba(255, 80, 255, 0.4);
             cursor: pointer;
         }
         .card:active { transform: translateY(-2px); }
 
-        /* 音乐按钮 - 完全按照新截图风格（半透明圆形音量按钮） */
+        /* 音乐按钮 - 已缩小到40px */
         .music-btn {
             position: fixed;
-            bottom: 35px;
-            right: 35px;
-            width: 58px;
-            height: 58px;
-            background: rgba(255, 255, 255, 0.18);
-            backdrop-filter: blur(20px);
-            border: 2px solid rgba(255, 255, 255, 0.45);
+            bottom: 30px;
+            right: 30px;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.22);
+            backdrop-filter: blur(18px);
+            border: 1.5px solid rgba(255, 255, 255, 0.55);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 26px;
+            font-size: 19px;
             color: #ffffff;
-            box-shadow: 
-                0 4px 15px rgba(0, 0, 0, 0.3),
-                inset 0 0 12px rgba(255,255,255,0.4);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2), inset 0 0 8px rgba(255,255,255,0.3);
             z-index: 100;
             transition: all 0.25s ease;
         }
         .music-btn:active {
-            transform: scale(0.88);
-            background: rgba(255, 255, 255, 0.35);
+            transform: scale(0.92);
+            background: rgba(255, 255, 255, 0.38);
         }
 
         .card-content {
-            display: none;
-            margin-top: 15px;
-            text-align: left;
-            font-size: 15px;
+            display: none; margin-top: 15px; text-align: left; font-size: 15px;
         }
         .card-content a {
-            color: #fff;
-            text-decoration: none;
-            display: block;
-            padding: 10px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.2);
+            color: #fff; text-decoration: none; display: block;
+            padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.2);
         }
         .card-content a:last-child { border-bottom: none; }
         .card-content a:hover { color: #a0f0ff; text-decoration: underline; }
@@ -191,10 +129,8 @@
 </head>
 <body>
 
-    <!-- 粉红色雪花 -->
     <div class="snow-container" id="snowContainer"></div>
 
-    <!-- 跑马灯 -->
     <div class="marquee">
         <div class="marquee-content">我命由我不由天！</div>
     </div>
@@ -206,7 +142,6 @@
         </div>
     </div>
 
-    <!-- 小按钮 -->
     <div class="small-buttons">
         <a href="https://t.me/Eternity0006" class="small-btn" target="_blank">TG频道</a>
         <a href="https://jierry-alt.github.io/jierry-al.github.io/" class="small-btn" target="_blank">个人网站</a>
@@ -234,7 +169,7 @@
         <div class="card" onclick="toggleCard(this)">其他资源 ▼</div>
     </div>
 
-    <!-- 音乐按钮（新截图风格） -->
+    <!-- 音乐按钮 -->
     <div onclick="toggleMusic()" id="musicBtn" class="music-btn">🎵</div>
 
     <audio id="bgMusic" loop>
@@ -260,9 +195,7 @@
 
         function toggleCard(card) {
             const content = card.querySelector('.card-content');
-            if (content) {
-                content.style.display = (content.style.display === 'block') ? 'none' : 'block';
-            }
+            if (content) content.style.display = (content.style.display === 'block') ? 'none' : 'block';
         }
 
         const audio = document.getElementById('bgMusic');
@@ -271,10 +204,10 @@
         function toggleMusic() {
             if (audio.paused) {
                 audio.play();
-                musicBtn.style.background = 'rgba(255, 255, 255, 0.35)';
+                musicBtn.style.background = 'rgba(255, 255, 255, 0.38)';
             } else {
                 audio.pause();
-                musicBtn.style.background = 'rgba(255, 255, 255, 0.18)';
+                musicBtn.style.background = 'rgba(255, 255, 255, 0.22)';
             }
         }
 
