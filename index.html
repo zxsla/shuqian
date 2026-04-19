@@ -8,7 +8,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: "Microsoft YaHei", sans-serif;
-            /* 修改后的青绿到蓝色渐变背景 */
+            /* 青绿到蓝色的渐变背景 */
             background: linear-gradient(135deg, #00FFCC, #00BFFF, #1E90FF, #4169E1);
             background-size: 400% 400%;
             animation: dynamicFlow 16s ease infinite;
@@ -90,24 +90,6 @@
         }
         .card:active { transform: translateY(-2px); }
 
-        /* 音乐按钮 */
-        .music-btn {
-            position: fixed;
-            bottom: 25px;
-            right: 20px;
-            width: 62px;
-            height: 62px;
-            background: rgba(255,255,255,0.22);
-            backdrop-filter: blur(20px);
-            border: 2.5px solid #FF80FF;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 30px;
-            box-shadow: 0 8px 25px rgba(255, 100, 255, 0.7);
-        }
-
         /* 卡片内容列表样式 */
         .card-content {
             display: none;
@@ -119,11 +101,11 @@
             color: #fff;
             text-decoration: none;
             display: block;
-            padding: 8px 0;
+            padding: 10px 0;
             border-bottom: 1px solid rgba(255,255,255,0.2);
         }
         .card-content a:last-child { border-bottom: none; }
-        .card-content a:hover { color: #fff; text-decoration: underline; }
+        .card-content a:hover { color: #a0f0ff; text-decoration: underline; }
     </style>
 </head>
 <body>
@@ -134,7 +116,7 @@
         </div>
     </div>
 
-    <!-- 4个小按钮（已进一步缩小） -->
+    <!-- 4个小按钮（已缩小） -->
     <div class="small-buttons">
         <a href="https://t.me/Eternity0006" class="small-btn" target="_blank">TG频道</a>
         <a href="https://jierry-alt.github.io/jierry-al.github.io/" class="small-btn" target="_blank">个人网站</a>
@@ -143,7 +125,16 @@
     </div>
 
     <div class="cards">
-        <div class="card" onclick="toggleCard(this)">公益项目 ▼</div>
+        <!-- 公益项目卡片 -->
+        <div class="card" onclick="toggleCard(this)">公益项目 ▼
+            <div class="card-content">
+                <a href="https://substable.trevely.de5.net/Trevely" target="_blank">公益订阅 1</a>
+                <a href="https://hha.albertabobbi.ndjp.net/sub?token=0dae672be75b12550a98be8fa66458f2" target="_blank">公益订阅 2</a>
+                <a href="https://sni.skylee4.cloudns.ch/tset" target="_blank">公益订阅 3</a>
+            </div>
+        </div>
+
+        <!-- 破解软件卡片 -->
         <div class="card" onclick="toggleCard(this)">破解软件 ▼
             <div class="card-content">
                 <a href="https://streamshare.wireway.ch/download/xicyren7" target="_blank">酷我音乐</a>
@@ -151,6 +142,8 @@
                 <a href="http://4275.com/hagn1n" target="_blank">红果短剧</a>
             </div>
         </div>
+
+        <!-- 其他资源卡片 -->
         <div class="card" onclick="toggleCard(this)">其他资源 ▼</div>
     </div>
 
@@ -165,7 +158,7 @@
         function toggleCard(card) {
             const content = card.querySelector('.card-content');
             if (content) {
-                content.style.display = content.style.display === 'block' ? 'none' : 'block';
+                content.style.display = (content.style.display === 'block') ? 'none' : 'block';
             } else {
                 alert('此卡片内容待展开（可自行添加列表）');
             }
