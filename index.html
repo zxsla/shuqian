@@ -134,7 +134,6 @@
             border: 2px solid rgba(255,255,255,0.5);
             border-radius: 20px;
             padding: 18px 16px;
-            text-align: center;
             font-size: 18px;
             font-weight: 700;
             color: #ffffff;
@@ -167,35 +166,12 @@
             box-shadow: 0 12px 35px rgba(255, 100, 255, 0.8);
         }
 
-        .music-btn {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.22);
-            backdrop-filter: blur(18px);
-            border: 1.5px solid rgba(255, 255, 255, 0.55);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 19px;
-            color: #ffffff;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.2), inset 0 0 8px rgba(255,255,255,0.3);
-            z-index: 100;
-            transition: all 0.25s ease;
-        }
-        .music-btn:active {
-            transform: scale(0.92);
-            background: rgba(255, 255, 255, 0.38);
-        }
-
         .card-content {
             display: none;
             margin-top: 15px;
             text-align: left;
             font-size: 15px;
+            width: 100%;
         }
         .card-content a {
             color: #fff;
@@ -233,26 +209,48 @@
         <div class="small-btn">待填</div>
     </div>
 
-    <!-- 可上下滑动的内容区域 -->
+    <!-- 内容区域 -->
     <div class="content">
         <div class="cards">
+
             <!-- 公益项目 -->
             <div class="card" onclick="toggleCard(this)">
                 <img src="https://qu.ax/XLQFE.jpg" alt="公益项目">
                 <span>公益项目 ▼</span>
+                <div class="card-content">
+                    <a href="https://substable.trevely.de5.net/Trevely" target="_blank">公益订阅 1</a>
+                    <a href="https://hha.albertabobbi.ndjp.net/sub?token=0dae672be75b12550a98be8fa66458f2" target="_blank">公益订阅 2</a>
+                    <a href="https://sni.skylee4.cloudns.ch/tset" target="_blank">公益订阅 3</a>
+                </div>
             </div>
 
             <!-- 破解软件 -->
             <div class="card" onclick="toggleCard(this)">
                 <img src="https://qu.ax/6xaoD.jpg" alt="破解软件">
                 <span>破解软件 ▼</span>
+                <div class="card-content">
+                    <a href="https://streamshare.wireway.ch/download/xicyren7" target="_blank">酷我音乐</a>
+                    <a href="http://4275.com/rxd0dp" target="_blank">shizuku</a>
+                    <a href="http://4275.com/hagn1n" target="_blank">红果短剧</a>
+                    <a href="https://dogpan.com/home?path=cloudreve%3A%2F%2FYEPnhJ%40share" target="_blank">🎬 tiltok合集</a>
+                    <a href="https://dogpan.com/home?path=cloudreve%3A%2F%2FmZ3OsK%40share" target="_blank">📱 安卓TG第三方</a>
+                    <a href="https://dogpan.com/home?path=cloudreve%3A%2F%2FjRmliM%40share" target="_blank">🎵 落雪音乐合集</a>
+                </div>
             </div>
 
             <!-- 其他资源 -->
             <div class="card" onclick="toggleCard(this)">
                 <img src="https://qu.ax/XLQFE.jpg" alt="其他资源">
                 <span>其他资源 ▼</span>
+                <div class="card-content">
+                    <a href="https://blog.cmliussss.com/p/edt2" target="_blank">📖 CM节点搭建图文教程</a>
+                    <a href="https://cf.090227.xyz/" target="_blank">🌐 CM优选IP</a>
+                    <a href="https://hhhhh.eu.org/" target="_blank">🌐 乌鸦优选IP</a>
+                    <a href="https://cfv6.qq.ms/" target="_blank">🌐 无名优选IP</a>
+                    <a href="https://wp.v6x8.com/upload.php" target="_blank">📤 直连托管上传</a>
+                </div>
             </div>
+
         </div>
     </div>
 
