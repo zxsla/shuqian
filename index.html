@@ -166,6 +166,31 @@
             box-shadow: 0 12px 35px rgba(255, 100, 255, 0.8);
         }
 
+        /* 音乐按钮 - 恢复成原来的样式和位置 */
+        .music-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.22);
+            backdrop-filter: blur(18px);
+            border: 1.5px solid rgba(255, 255, 255, 0.55);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 19px;
+            color: #ffffff;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2), inset 0 0 8px rgba(255,255,255,0.3);
+            z-index: 100;
+            transition: all 0.25s ease;
+        }
+        .music-btn:active {
+            transform: scale(0.92);
+            background: rgba(255, 255, 255, 0.38);
+        }
+
         .card-content {
             display: none;
             margin-top: 15px;
@@ -240,7 +265,7 @@
 
             <!-- 其他资源 -->
             <div class="card" onclick="toggleCard(this)">
-                <img src="https://qu.ax/XLQFE.jpg" alt="其他资源">
+                <img src="https://qu.ax/8hO8S.jpg" alt="其他资源">
                 <span>其他资源 ▼</span>
                 <div class="card-content">
                     <a href="https://blog.cmliussss.com/p/edt2" target="_blank">📖 CM节点搭建图文教程</a>
@@ -254,7 +279,7 @@
         </div>
     </div>
 
-    <!-- 音乐按钮 -->
+    <!-- 音乐按钮（已恢复原位置和大小） -->
     <div onclick="toggleMusic()" id="musicBtn" class="music-btn">🎵</div>
 
     <audio id="bgMusic" loop>
