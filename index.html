@@ -24,7 +24,6 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* 雪花 */
         .snow-container {
             position: fixed;
             top: 0; left: 0;
@@ -48,7 +47,6 @@
             100% { transform: translateY(110vh) translateX(var(--drift)) rotate(360deg); }
         }
 
-        /* 跑马灯 */
         .marquee {
             position: relative;
             width: 100%;
@@ -125,7 +123,6 @@
             gap: 16px;
         }
 
-        /* 高亮渐变卡片样式 */
         .card {
             background: linear-gradient(135deg, #FF00CC, #00FFFF, #7B68EE);
             background-size: 200% 200%;
@@ -166,7 +163,6 @@
             box-shadow: 0 12px 35px rgba(255, 100, 255, 0.8);
         }
 
-        /* 音乐按钮 - 恢复成原来的样式和位置 */
         .music-btn {
             position: fixed;
             bottom: 30px;
@@ -211,10 +207,8 @@
 </head>
 <body>
 
-    <!-- 雪花 -->
     <div class="snow-container" id="snowContainer"></div>
 
-    <!-- 跑马灯 -->
     <div class="marquee">
         <div class="marquee-content">我命由我不由天！</div>
     </div>
@@ -226,7 +220,6 @@
         </div>
     </div>
 
-    <!-- 小按钮 -->
     <div class="small-buttons">
         <a href="https://t.me/Eternity0006" class="small-btn" target="_blank">TG频道</a>
         <a href="https://jierry-alt.github.io/jierry-al.github.io/" class="small-btn" target="_blank">个人网站</a>
@@ -234,11 +227,9 @@
         <div class="small-btn">待填</div>
     </div>
 
-    <!-- 内容区域 -->
     <div class="content">
         <div class="cards">
 
-            <!-- 公益项目 -->
             <div class="card" onclick="toggleCard(this)">
                 <img src="https://qu.ax/XLQFE.jpg" alt="公益项目">
                 <span>公益项目 ▼</span>
@@ -249,7 +240,6 @@
                 </div>
             </div>
 
-            <!-- 破解软件 -->
             <div class="card" onclick="toggleCard(this)">
                 <img src="https://qu.ax/6xaoD.jpg" alt="破解软件">
                 <span>破解软件 ▼</span>
@@ -263,7 +253,6 @@
                 </div>
             </div>
 
-            <!-- 其他资源 -->
             <div class="card" onclick="toggleCard(this)">
                 <img src="https://qu.ax/8hO8S.jpg" alt="其他资源">
                 <span>其他资源 ▼</span>
@@ -279,11 +268,10 @@
         </div>
     </div>
 
-    <!-- 音乐按钮（已恢复原位置和大小） -->
     <div onclick="toggleMusic()" id="musicBtn" class="music-btn">🎵</div>
 
     <audio id="bgMusic" loop>
-        <source src="https://streamshare.wireway.ch/download/4un2jvap" type="audio/mpeg">
+        <source src="https://streamshare.wireway.ch/download/bcooco9n" type="audio/mpeg">
     </audio>
 
     <script>
